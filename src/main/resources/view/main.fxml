@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sharedrive.desktopapp.controller.MainController">
+    <!-- Content -->
+    <StackPane layoutX="29.0" layoutY="6.0" maxHeight="980.0" maxWidth="1880.0">
+        <ImageView fx:id="contentImage" fitHeight="980.0" fitWidth="1880.0" layoutX="29.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER" />
+        <MediaView fx:id="contentVideo" cache="true" fitHeight="980.0" fitWidth="1880.0" layoutX="29.0" layoutY="10" pickOnBounds="true" StackPane.alignment="CENTER" />
+    </StackPane>
+    <!-- Controllers -->
+    <Pane>
+
+        <!-- previous content button -->
+        <Button fx:id="prevContentButton" blendMode="DARKEN" cache="true" layoutX="594.0" layoutY="1005.0" mnemonicParsing="false" onMouseClicked="#prevContent" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #34568B; -fx-text-fill: white; -fx-border-radius: 50px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Back" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <!-- next content button -->
+        <Button fx:id="nextContentButton" blendMode="DARKEN" cache="true" layoutX="871.0" layoutY="1006.0" mnemonicParsing="false" onMouseClicked="#nextContent" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #34568B; -fx-text-fill: white; -fx-border-radius: 50px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Next" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <!-- save content button -->
+        <Button fx:id="saveContentButton" layoutX="293.0" layoutY="1014.0" mnemonicParsing="false" onMouseClicked="#saveContent" prefHeight="44.0" prefWidth="78.0" text="Save" />
+
+        <Label fx:id="contentIndex" layoutX="156.0" layoutY="1019.0" />
+
+        <TextField fx:id="contentIndexSelect" layoutX="396.0" layoutY="1007.0" onKeyPressed="#jumpContent" promptText="Id" />
+
+        <TextField fx:id="contentTag" layoutX="396.0" layoutY="1041.0" onKeyPressed="#selectTag" promptText="tag" />
+      <Button fx:id="sourceButton" layoutX="202.0" layoutY="1014.0" mnemonicParsing="false" onMouseClicked="#getSource" prefHeight="44.0" prefWidth="78.0" text="Source" />
+
+    </Pane>
+</Pane>
