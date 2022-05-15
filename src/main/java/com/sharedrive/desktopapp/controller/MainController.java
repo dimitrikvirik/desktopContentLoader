@@ -17,6 +17,7 @@ import javafx.scene.media.MediaView;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -48,7 +49,10 @@ public class MainController extends Controller {
     }
 
     public void selectTag(KeyEvent keyEvent) throws IOException {
-        final List<String> tags = Arrays.stream(contentTag.getCharacters().toString().split(" ")).toList();
+        final List<String> tags = new ArrayList<>(Arrays.stream(contentTag.getCharacters().toString().split(" ")).toList());
+
+        String blacklist= "-comic -furry -fur -my_little_pony -hyper_penis -horse -censored -horse_penis -extra_penises -roblox -pregnant -smelly -obese -eating -fat -burp -boxers -shitting -soiling -anthro -penis_piercing -muscular -fart -multi_penis -gigantic_breasts -muscular_futanari -huge_balls -peeing -wide_hips";
+        tags.addAll(Arrays.stream(blacklist.split(" ")).toList());
 
         contentLoader = new Rule34ContentLoader("output/", contentVideo, contentImage, contentIndex, 420, tags);
     }
